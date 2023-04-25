@@ -12,11 +12,11 @@ int print_char(va_list valist, parameters_t *parameters)
 	char pad_char = ' ';
 	unsigned int pad = 1, sum = 0, ch = va_arg(valist, int);
 
-	if (parameters->minus_flag)
+	if (parameters->minusFlag)
 		sum += _putchar(ch);
 	while (pad++ < parameters->width)
 		sum += _putchar(pad_char);
-	if (!parameters->minus_flag)
+	if (!parameters->minusFlag)
 		sum += _putchar(ch);
 	return (sum);
 }
@@ -36,13 +36,13 @@ int print_string(va_list valist, parameters_t *parameters)
 	(void)parameters;
 	switch ((int)(!str))
 		case 1:
-			str = NULL_STRING;
+			str = "(null)";
 
 	j = pad = _strlen(str);
 	if (parameters->precision < pad)
 		j = pad = parameters->precision;
 
-	if (parameters->minus_flag)
+	if (parameters->minusFlag)
 	{
 		if (parameters->precision != UINT_MAX)
 			for (i = 0; i < pad; i++)
@@ -52,7 +52,7 @@ int print_string(va_list valist, parameters_t *parameters)
 	}
 	while (j++ < parameters->width)
 		sum += _putchar(pad_char);
-	if (!parameters->minus_flag)
+	if (!parameters->minusFlag)
 	{
 		if (parameters->precision != UINT_MAX)
 			for (i = 0; i < pad; i++)
