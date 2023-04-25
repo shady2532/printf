@@ -6,22 +6,24 @@
  * Return: number of bytes printed
  */
 int _printf(const char *format, ...)
-	
+
 {
+
 	int sum = 0;
 	va_list valist;
-	int *p,*start;
+	char *p, *start;
 
-	parameters_t parameters = PARAM_INITIALS;
+	parameters_t parameter = PARAM_INITIALS;
 
 	va_start(valist, format);
 
-        if (format[0] == '%' && format[1] == ' ' && !format[2])
+	if (!format || (format[0] == '%' && !format[1]))/* checking for NULL char */
 		return (-1);
-	if (!format || format[0] == '%' && format[1] == '\0')
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
-	for(p = (char *)format; *p; p++)
+	for (p = (char *)format; *p; p++)
 	{
+		init_param(&parameter, valist);
 		if (*p != '%')
 		{
 			sum += _putchar(*p);
@@ -29,19 +31,19 @@ int _printf(const char *format, ...)
 		}
 		start = p;
 		p++;
-		while (get_flag(p, &parameters)) /* while char at p is flag character */
+		while (get_flag(p, &parameter))
 		{
-			p++; /* next character */
+			p++;
 		}
-		p = get_width(p, &parameters, valist);
-		p = get_precision(p, &parameters, valist);
-		if (get_modifier(p, &parameters))
+		p = get_width(p, &parameter, valist);
+		p = get_precision(p, &parameter, valist);
+		if (get_modifier(p, &parameter))
 			p++;
 		if (!get_specifier(p))
 			sum += print_from_to(start, p,
-					parameters.l_modifier || parameters.h_modifier ? p - 1 : 0);
+					parameter.l_modifier || parameter.h_modifier ? p - 1 : 0);
 		else
-			sum += get_print_func(p, valist, &parameters);
+			sum += get_print_func(p, valist, &parameter);
 	}
 	_putchar(-1);
 	va_end(valist);

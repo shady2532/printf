@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef _PRINT_F
+#define _PRINT_F
 
 #include <unistd.h>
 #include <stdio.h>
@@ -9,6 +9,7 @@
 
 #define CONVERT_LOWERCASE	1
 #define CONVERT_UNSIGNED	2
+#define PARAM_INITIALS {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 /**
  * struct parameters - parameters struct
@@ -56,6 +57,7 @@ typedef struct specifier
 	int (*f)(va_list, parameters_t *);
 } specifier_t;
 
+//_printf.c
 int _printf(const char *format, ...);
 
 //funcs.c
@@ -90,4 +92,4 @@ int print_S(va_list valist, parameters_t *parameter);
 int print_unsigned(va_list valist, parameters_t *parameter);
 int print_address(va_list valist, parameters_t *parameter);
 
-#endif /* MAIN_H */
+#endif /* _PRINT_F */
