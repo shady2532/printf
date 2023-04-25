@@ -68,6 +68,7 @@ int print_from_to(char *star, char *stop, char *except);
 //numbers.c
 char *convert(long int num, int base, int flags, parameters_t *parameter);
 int _isdigit(int c);
+char *get_precision(char *p, parameters_t *parameters, va_list valist);
 
 //parameters.c
 void init_param(parameters_t *parameter, va_list valist);
