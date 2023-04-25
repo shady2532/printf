@@ -23,7 +23,7 @@ int (*get_specifier(char *s))(va_list valist, parameters_t *parameters)
 		{"%", print_percent},
 		{"u", print_unsigned},
 		{"p", print_address},
-		{"S", prSint_S},
+		{"S", print_S},
 		{NULL, NULL}
 	};
 

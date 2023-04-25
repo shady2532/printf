@@ -44,5 +44,5 @@ int print_percent(va_list valist, parameters_t *parameter)
  */
 int print_S(va_list valist, parameters_t *parameter)
 {
-
+    
 }
