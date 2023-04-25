@@ -14,6 +14,7 @@ int _printf(const char *format, ...)
 	char *p, *start;
 
 	parameters_t parameter = parameter_INIT;
+
 	va_start(valist, format);
 
 	if (!format || (format[0] == '%' && !format[1]))/* checking for NULL char */
@@ -35,7 +36,6 @@ int _printf(const char *format, ...)
 		{
 			p++;
 		}
-		
 		p = get_width(p, &parameter, valist);
 		p = get_precision(p, &parameter, valist);
 		if (get_modifier(p, &parameter))
