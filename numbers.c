@@ -4,6 +4,8 @@
  * convert - converter function, a clone of itoa
  * @num: number
  * @base: base
+ * @flags: flags
+ * @params: parameters
  *
  * Return: string
  */
