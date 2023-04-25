@@ -1,11 +1,11 @@
 #include "main.h"
 
-#define PARAM_INITIALS {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+#define PARAM_INITIALS {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 /**
  * init_params - clears struct fields and reset buf
- * @params: the parameters struct
- * @ap: the argument pointer
+ * @parameter: the parameters struct
+ * @valist: the argument pointer
  * Return: void
  */
 void init_parameter(parameters_t *parameter, va_list valist)
@@ -30,7 +30,7 @@ void init_parameter(parameters_t *parameter, va_list valist)
 /**
  * get_flag - finds the flag functions
  * @s: the format string
- * @params: the parameters struct
+ * @parameter: the parameters struct
  * Return: if flag was valid
  */
 int get_flag(char *s, parameters_t *parameter)
@@ -60,7 +60,7 @@ int get_flag(char *s, parameters_t *parameter)
 /**
  * get_modifier - finds the modifier function
  * @s: string for format
- * @params: parameter structure
+ * @parameter: parameter structure
  * Return: if modifier was valid
  */
 int get_modifier(char *s, parameters_t *parameter)
@@ -82,8 +82,8 @@ int get_modifier(char *s, parameters_t *parameter)
 /**
  * get_width - gets the width from the format string
  * @s: the format string
- * @params: the parameters struct
- * @ap: the argument pointer
+ * @parameter: the parameters struct
+ * @valist: the argument pointer
  * Return: new pointer
  */
 char *get_width(char *s, parameters_t *parameter, va_list valist)
