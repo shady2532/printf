@@ -8,14 +8,19 @@ int _printf(const char *format, ...)
 {
 	int sum = 0;
 	va_list valist;
-	int i = 0;
+	int *p,*start;
 	
 	va_start(valist, format);
 	
 	if (!format || format[0] == '%' && format[1] == '\0')
 		return (-1);
-	while (format != NULL && format[i] != '\0')
+	for(p = (char *)format; *p; p++)
 	{
+		if (*p != '%')
+		{
+			sum += _putchar(*p);
+			continue;
+		}
 		
 	}
 
