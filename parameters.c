@@ -1,4 +1,7 @@
 #include "main.h"
+
+#define PARAM_INITIALS {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
 /**
  * struct parameters - parameters struct
  *

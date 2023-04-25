@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	va_list valist;
 	int *p,*start;
 
-	parameters_t parameters = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	parameters_t parameters = PARAM_INITIALS;
 
 	va_start(valist, format);
 
@@ -24,7 +24,9 @@ int _printf(const char *format, ...)
 			sum += _putchar(*p);
 			continue;
 		}
-
+		start = p;
+		p++;
+		
 	}
 
 	va_end(valist);

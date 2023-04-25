@@ -6,7 +6,7 @@
 #include <stdarg.h>
 #include <limits.h>
 
-#define PARAM_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
 
 int _printf(const char *format, ...);
 
