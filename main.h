@@ -7,5 +7,8 @@
 
 int _printf(const char *format, ...);
 
+//funcs.c
+int _strlen(char *s);
+int _putchar(char c);
 
 #endif /* MAIN_H */
