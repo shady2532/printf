@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include "parameters.c"
 /**
  * print_char - prints character
  * @valist: argument pointer

@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include "parameters.c"
 /**
  * print_hex - prints unsigned hex numbers in lowercase
  * @valist: the argument pointer
@@ -26,7 +26,7 @@ int print_hex(va_list valist, parameters_t *parameters)
 		*--str = 'x';
 		*--str = '0';
 	}
-	parameters->unsign = 1;
+	parameters->sign = 1;
 	return (c += print_number(str, parameters));
 }
 
@@ -56,7 +56,7 @@ int print_HEX(va_list valist, parameters_t *parameters)
 		*--str = 'X';
 		*--str = '0';
 	}
-	parameters->unsign = 1;
+	parameters->sign = 1;
 	return (c += print_number(str, parameters));
 }
 /**
@@ -74,7 +74,7 @@ int print_binary(va_list valist, parameters_t *parameters)
 
 	if (parameters->hashtag_flag && n)
 		*--str = '0';
-	parameters->unsign = 1;
+	parameters->sign = 1;
 	return (c += print_number(str, parameters));
 }
 
@@ -101,6 +101,6 @@ int print_octal(va_list valist, parameters_t *parameters)
 
 	if (parameters->hashtag_flag && l)
 		*--str = '0';
-	parameters->unsign = 1;
+	parameters->sign = 1;
 	return (c += print_number(str, parameters));
 }
