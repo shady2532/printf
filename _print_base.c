@@ -59,6 +59,7 @@ int print_HEX(va_list valist, parameters_t *parameters)
 	parameters->sign = 1;
 	return (c += print_number(str, parameters));
 }
+
 /**
  * print_binary - prints unsigned binary number
  * @valist: the argument pointer

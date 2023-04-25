@@ -46,4 +46,9 @@ int print_HEX(va_list valist, parameters_t *parameters);
 int print_binary(va_list valist, parameters_t *parameters);
 int print_octal(va_list valist, parameters_t *parameters);
 
+//_printf_datatypes
+int print_int(va_list valist, parameters_t *parameter);
+int print_percent(va_list valist, parameters_t *parameter);
+int print_S(va_list valist, parameters_t *parameter);
+
 #endif /* MAIN_H */
