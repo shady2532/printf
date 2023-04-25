@@ -44,7 +44,7 @@ int _isdigit(int c)
 	return (c >= '0' && c <= '9');
 }
 
-char *get_precision(char *s, params_t *params, va_list ap)
+char *get_precision(char *s, parameters_t *parameter, va_list ap)
 {
 	int d = 0;
 
@@ -61,6 +61,6 @@ char *get_precision(char *s, params_t *params, va_list ap)
 		while (_isdigit(*s))
 			d = d * 10 + (*s++ - '0');
 	}
-	params->precision = d;
+	parameter->precision = d;
 	return (s);
 }
