@@ -2,11 +2,13 @@
 #define MAIN_H
 
 #include <unistd.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <limits.h>
 
-
+#define CONVERT_LOWERCASE	1
+#define CONVERT_UNSIGNED	2
 
 int _printf(const char *format, ...);
 
