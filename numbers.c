@@ -1,4 +1,5 @@
 #include "main.h"
+#include "parameters.c"
 /**
  * convert - converter function, a clone of itoa
  * @num: number
@@ -6,7 +7,7 @@
  *
  * Return: string
  */
-char *convert(long int num, int base)
+char *convert(long int num, int base, int flags, parameters_t *parameter)
 {
         static char *array = "0123456789abcdef";
         static char buffer[50];

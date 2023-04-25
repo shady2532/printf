@@ -15,7 +15,7 @@ int _strlen(char *s);
 int _putchar(char c);
 
 //numbers.c
-char *convert(long int num, int base);
+char *convert(long int num, int base, int flags, parameters_t *parameter);
 
 //parameters.c
 void init_param(parameters_t *parameter, va_list valist);
