@@ -11,19 +11,19 @@ int (*get_specifier(char *s))(va_list valist, parameters_t *parameters)
 {
 	specifier_t specifiers[] = {
 		{"c", print_char},
-		{"d", print_int},
-		{"i", print_int},
-		{"s", print_string},
-		{"%", print_percent},
-		{"b", print_binary},
-		{"o", print_octal},
-		{"u", print_unsigned},
-		{"x", print_hex},
-		{"X", print_HEX},
-		{"p", print_address},
-		{"S", print_S},
 		{"r", print_rev},
 		{"R", print_rot13},
+		{"s", print_string},
+		{"b", print_binary},
+		{"o", print_octal},
+		{"x", print_hex},
+		{"X", print_HEX},
+		{"d", print_int},
+		{"i", print_int},
+		{"%", print_percent},
+		{"u", print_unsigned},
+		{"p", print_address},
+		{"S", print_S},
 		{NULL, NULL}
 	};
 
