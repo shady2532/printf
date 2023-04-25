@@ -29,13 +29,3 @@ int _putchar(char c)
 
 int print_from_to(char *star, char *stop, char *except);
 
-/**
- * _isdigit - checks if character is digit
- * @c: the character to check
- *
- * Return: 1 if digit, 0 otherwise
- */
-int _isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
