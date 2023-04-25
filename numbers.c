@@ -48,6 +48,13 @@ int _isdigit(int c)
 	return (c >= '0' && c <= '9');
 }
 
+/**
+ * get_precision - gets the precision from the format string
+ * @s: the format string
+ * @parameter: the parameters struct
+ * @ap: the argument pointer
+ * Return: new pointer
+*/
 char *get_precision(char *s, parameters_t *parameter, va_list ap)
 {
 	int d = 0;
