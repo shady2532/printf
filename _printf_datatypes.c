@@ -78,7 +78,6 @@ int print_S(va_list valist, parameters_t *parameter)
 int print_unsigned(va_list valist, parameters_t *parameter)
 {
 	unsigned long l;
-	
 	if (parameter->l_modifier)
 		l = (unsigned long)va_arg(valist, long);
 	else if (parameter->h_modifier)
@@ -101,7 +100,6 @@ int print_address(va_list valist, parameters_t *parameter)
 {
 	unsigned long int n = va_arg(valist, unsigned long int);
 	char *s;
-	
 	if (!n)
 		return (_puts("(nil)"));
 	s = convert(n, 16, CONVERT_LOWERCASE | CONVERT_UNSIGNED, parameter);
