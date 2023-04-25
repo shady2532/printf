@@ -71,7 +71,9 @@ int _isdigit(int c);
 
 //parameters.c
 void init_param(parameters_t *parameter, va_list valist);
+char *get_width(char *s, parameters_t *parameter, va_list valist);
 int get_flag(char *s, parameters_t *parameter);
+int get_modifier(char *s, parameters_t *parameter);
 
 //_print_string
 int print_char(va_list valist, parameters_t *parameters);

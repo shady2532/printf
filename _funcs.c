@@ -26,6 +26,3 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
-
-int print_from_to(char *star, char *stop, char *except);
-

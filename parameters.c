@@ -88,18 +88,18 @@ int get_modifier(char *s, parameters_t *parameter)
  */
 char *get_width(char *s, parameters_t *parameter, va_list valist)
 {
-    int d = 0;
+	int d = 0;
 
-    if (*s == '*')
-    {
-            d = va_arg(valist, int);
-            s++;
-    }
-    else
-    {
-        while(_isdigit(*s))
-            d = d * 10 + (*s++ - '0');
-    }
-    parameter->width = d;
-    return (s);
+	if (*s == '*')
+	{
+		d = va_arg(valist, int);
+		s++;
+	}
+	else
+	{
+		while (_isdigit(*s))
+			d = d * 10 + (*s++ - '0');
+	}
+	parameter->width = d;
+	return (s);
 }
