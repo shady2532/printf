@@ -9,9 +9,11 @@ int _printf(const char *format, ...)
 	int sum = 0;
 	va_list valist;
 	int *p,*start;
+
+	parameters_t parameters = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	
 	va_start(valist, format);
-	
+
 	if (!format || format[0] == '%' && format[1] == '\0')
 		return (-1);
 	for(p = (char *)format; *p; p++)
@@ -21,7 +23,7 @@ int _printf(const char *format, ...)
 			sum += _putchar(*p);
 			continue;
 		}
-		
+
 	}
 
 	va_end(valist);
