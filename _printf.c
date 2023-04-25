@@ -6,21 +6,20 @@
  * Return: number of bytes printed
  */
 int _printf(const char *format, ...)
-	
 {
 	int sum = 0;
 	va_list valist;
-	int *p,*start;
+	int *p, *start;
 
 	parameters_t parameters = PARAM_INITIALS;
 
 	va_start(valist, format);
-
-        if (format[0] == '%' && format[1] == ' ' && !format[2])
+	
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
 	if (!format || format[0] == '%' && format[1] == '\0')
 		return (-1);
-	for(p = (char *)format; *p; p++)
+	for (p = (char *)format; *p; p++)
 	{
 		if (*p != '%')
 		{
