@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include "parameters.c"
 /**
  * get_specifier - finds the format function
  * @s: string of the format
@@ -48,7 +48,7 @@ int (*get_specifier(char *s))(va_list valist, parameters_t *parameters)
  * Return: the number of bytes printed
  */
 
-int get_print_func(char *s, va_list , parameters_t *parameters)
+int get_print_func(char *s, va_list valist, parameters_t *parameters)
 {
 	int (*f)(va_list, parameters_t *) = get_specifier(s);
 

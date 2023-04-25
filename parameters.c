@@ -91,3 +91,37 @@ int get_flag(char *s, parameters_t *parameter)
     }
     return (i);
 }
+
+/**
+ * get_modifier - finds the modifier function
+ * @s: string for format
+ * @params: parameter structure
+ * Return: if modifier was valid
+ */
+int get_modifier(char *s, parameters_t *parameter)
+{
+    int i = 0;
+
+    switch (*s)
+    {
+        case 'h':
+            i = parameter->h_modifier = 1;
+            break;
+        case 'l':
+            i = parameter->l_modifier = 1;
+            break;
+    }
+    return (i);
+}
+
+/**
+ * get_width - gets the width from the format string
+ * @s: the format string
+ * @params: the parameters struct
+ * @ap: the argument pointer
+ * Return: new pointer
+ */
+char *get_width(char *s, parameters_t parameter, va_list valist)
+{
+    
+}
