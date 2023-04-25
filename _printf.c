@@ -1,4 +1,5 @@
 #include "main.h"
+#include "parameters.c"
 /**
  * _printf - prints and input into the standard output
  * @format: the format string
@@ -11,7 +12,7 @@ int _printf(const char *format, ...)
 	int *p,*start;
 
 	parameters_t parameters = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-	
+
 	va_start(valist, format);
 
 	if (!format || format[0] == '%' && format[1] == '\0')
