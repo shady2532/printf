@@ -95,4 +95,8 @@ int print_S(va_list valist, parameters_t *parameter);
 int print_unsigned(va_list valist, parameters_t *parameter);
 int print_address(va_list valist, parameters_t *parameter);
 
+//spec.c
+int (*get_specifier(char *s))(va_list valist, parameters_t *parameters);
+int get_print_func(char *s, va_list valist, parameters_t *parameters);
+
 #endif /* _PRINT_F */
