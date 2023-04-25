@@ -21,6 +21,7 @@ int print_from_to(char *star, char *stop, char *except);
 char *convert(long int num, int base, int flags, parameters_t *parameter);
 
 //parameters.c
+<<<<<<< HEAD
 /**
  * struct parameters - parameters struct
  *
@@ -55,6 +56,9 @@ typedef struct parameters
     unsigned int l_modifier     : 1;
     unsigned int h_modifier     : 1;
 } parameters_t;
+=======
+int _isdigit(int c);
+>>>>>>> 9a45a557f776fe775d47e994f89b9c05befe2748
 void init_param(parameters_t *parameter, va_list valist);
 int get_flag(char *s, parameters_t *parameter);
 
