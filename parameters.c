@@ -10,21 +10,21 @@
  */
 void init_parameter(parameters_t *parameter, va_list valist)
 {
-    parameter->sign = 0;
-
-    parameter->hashFlag = 0;
-    parameter->plusFlag = 0;
-    parameter->zeroFlag = 0;
-    parameter->minusFlag = 0;
-    parameter->spaceFlag = 0;
-
-    parameter->width = 0;
-    parameter->precision = UINT_MAX;
-
-    parameter->l_modifier = 0;
-    parameter->h_modifier = 0;
-
-    (void)valist;
+	parameter->sign = 0;
+	
+	parameter->hashFlag = 0;
+	parameter->plusFlag = 0;
+	parameter->zeroFlag = 0;
+	parameter->minusFlag = 0;
+	parameter->spaceFlag = 0;
+	
+	parameter->width = 0;
+	parameter->precision = UINT_MAX;
+	
+	parameter->l_modifier = 0;
+	parameter->h_modifier = 0;
+	
+	(void)valist;
 }
 
 /**
@@ -35,26 +35,27 @@ void init_parameter(parameters_t *parameter, va_list valist)
  */
 int get_flag(char *s, parameters_t *parameter)
 {
-    int i = 0;
-    switch (*s)
-    {
-        case '+':
-            i = parameter->plusFlag = 1;
-            break;
-        case '-':
-            i = parameter->minusFlag = 1;
-            break;
-        case ' ':
-            i = parameter->spaceFlag = 1;
-            break;
-        case '#':
-            i = parameter->hashFlag = 1;
-            break;
-        case '0':
-            i = parameter->zeroFlag = 1;
-            break;
-    }
-    return (i);
+	int i = 0;
+	
+	switch (*s)
+	{
+		case '+':
+			i = parameter->plusFlag = 1;
+			break;
+		case '-':
+			i = parameter->minusFlag = 1;
+			break;
+		case ' ':
+			i = parameter->spaceFlag = 1;
+			break;
+		case '#':
+			i = parameter->hashFlag = 1;
+			break;
+		case '0':
+			i = parameter->zeroFlag = 1;
+			break;
+	}
+	return (i);
 }
 
 /**
@@ -65,18 +66,18 @@ int get_flag(char *s, parameters_t *parameter)
  */
 int get_modifier(char *s, parameters_t *parameter)
 {
-    int i = 0;
-
-    switch (*s)
-    {
-        case 'h':
-            i = parameter->h_modifier = 1;
-            break;
-        case 'l':
-            i = parameter->l_modifier = 1;
-            break;
-    }
-    return (i);
+	int i = 0;
+	
+	switch (*s)
+	{
+		case 'h':
+			i = parameter->h_modifier = 1;
+			break;
+		case 'l':
+			i = parameter->l_modifier = 1;
+			break;
+	}
+	return (i);
 }
 
 /**
