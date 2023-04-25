@@ -61,3 +61,33 @@ void init_param(parameters_t *parameter, va_list valist)
 
     (void)valist;
 }
+
+/**
+ * get_flag - finds the flag functions
+ * @s: the format string
+ * @params: the parameters struct
+ * Return: if flag was valid
+ */
+int get_flag(char *s, parameters_t *parameter)
+{
+    int i = 0;
+    switch (*s)
+    {
+        case '+':
+            i = parameter->plusFlag = 1;
+            break;
+        case '-':
+            i = parameter->minusFlag = 1;
+            break;
+        case ' ':
+            i = parameter->spaceFlag = 1;
+            break;
+        case '#':
+            i = parameter->hashFlag = 1;
+            break;
+        case '0':
+            i = parameter->zeroFlag = 1;
+            break;
+    }
+    return (i);
+}
