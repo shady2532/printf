@@ -1,5 +1,5 @@
 #include "main.h"
-#include "parameters.c"
+
 /**
  * convert - converter function, a clone of itoa
  * @num: number

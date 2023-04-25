@@ -1,5 +1,5 @@
 #include "main.h"
-#include "parameters.c"
+
 /**
  * print_hex - prints unsigned hex numbers in lowercase
  * @valist: the argument pointer

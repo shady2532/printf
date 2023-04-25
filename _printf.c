@@ -1,5 +1,5 @@
 #include "main.h"
-#include "parameters.c"
+
 /**
  * _printf - prints and input into the standard output
  * @format: the format string

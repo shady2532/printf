@@ -1,5 +1,5 @@
 #include "main.h"
-#include "parameters.c"
+
 /**
  * print_int - prints integer
  * @ap: argument pointer
