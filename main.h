@@ -22,13 +22,13 @@
 /**
  * struct parameters - parameters struct
  *
- * @unsign: flag if unsigned value
+ * @sign: flag if unsigned value
  *
- * @plus_flag: on if plus_flag specified
- * @space_flag: on if hashtag_flag specified
- * @hashtag_flag: on if _flag specified
- * @zero_flag: on if _flag specified
- * @minus_flag: on if _flag specified
+ * @plusFlag: on if plus_flag specified
+ * @spaceFlag: on if hashtag_flag specified
+ * @hashFlag: on if _flag specified
+ * @zeroFlag: on if _flag specified
+ * @minusFlag: on if _flag specified
  *
  * @width: field width specified
  * @precision: field precision specified
