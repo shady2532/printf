@@ -1,15 +1,19 @@
-#ifndef _PRINT_F
-#define _PRINT_F
+#ifndef _PRINTF_H_
+#define _PRINTF_H_
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <stdarg.h>
+#include <stdio.h>
+#include <unistd.h>
 #include <limits.h>
+#include <stdlib.h>
+
+
+#define NULL_STRING "(null)"
+
+#define parameter_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 #define CONVERT_LOWERCASE	1
 #define CONVERT_UNSIGNED	2
-#define PARAM_INITIALS {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 /**
  * struct parameters - parameters struct
@@ -29,22 +33,24 @@
  * @l_modifier: on if l_modifier is specified
  *
  */
+
 typedef struct parameters
 {
-    unsigned int sign           : 1;
+	unsigned int sign			: 1;
 
-    unsigned int plusFlag       : 1;
-    unsigned int minusFlag      : 1;
-    unsigned int hashFlag       : 1;
-    unsigned int spaceFlag      : 1;
-    unsigned int zeroFlag       : 1;
+	unsigned int plusFlag		: 1;
+	unsigned int spaceFlag		: 1;
+	unsigned int hashFlag	: 1;
+	unsigned int zeroFlag		: 1;
+	unsigned int minusFlag		: 1;
 
-    unsigned int precision;
-    unsigned int width;
+	unsigned int width;
+	unsigned int precision;
 
-    unsigned int l_modifier     : 1;
-    unsigned int h_modifier     : 1;
+	unsigned int h_modifier		: 1;
+	unsigned int l_modifier		: 1;
 } parameters_t;
+
 /**
  * struct specifier - Struct token
  *
@@ -57,46 +63,54 @@ typedef struct specifier
 	int (*f)(va_list, parameters_t *);
 } specifier_t;
 
-//_printf.c
-int _printf(const char *format, ...);
+/* _put.c module */
+int _puts(char *str);
+int _putchar(int c);
 
-//funcs.c
-int _strlen(char *s);
-int _putchar(char c);
-int print_from_to(char *star, char *stop, char *except);
+/* print_functions.c module */
+int print_char(va_list ap, parameters_t *parameter);
+int print_int(va_list ap, parameters_t *parameter);
+int print_string(va_list ap, parameters_t *parameter);
+int print_percent(va_list ap, parameters_t *parameter);
+int print_S(va_list ap, parameters_t *parameter);
 
-//numbers.c
+/* number.c module */
 char *convert(long int num, int base, int flags, parameters_t *parameter);
-int _isdigit(int c);
-char *get_precision(char *p, parameters_t *parameters, va_list valist);
+int print_unsigned(va_list ap, parameters_t *parameter);
+int print_address(va_list ap, parameters_t *parameter);
 
-//parameters.c
-void init_param(parameters_t *parameter, va_list valist);
-char *get_width(char *s, parameters_t *parameter, va_list valist);
+/* specifier.c module */
+int (*get_specifier(char *s))(va_list ap, parameters_t *parameter);
+int get_print_func(char *s, va_list ap, parameters_t *parameter);
 int get_flag(char *s, parameters_t *parameter);
 int get_modifier(char *s, parameters_t *parameter);
+char *get_width(char *s, parameters_t *parameter, va_list ap);
 
-//_print_string
-int print_char(va_list valist, parameters_t *parameters);
-int print_string(va_list valist, parameters_t *parameters);
-int print_rev(va_list valist, parameters_t *parameters);
-int print_rot13(va_list valist, parameters_t *parameters);
+/* convert_number.c module */
+int print_hex(va_list ap, parameters_t *parameter);
+int print_HEX(va_list ap, parameters_t *parameter);
+int print_binary(va_list ap, parameters_t *parameter);
+int print_octal(va_list ap, parameters_t *parameter);
 
-//_print_base
-int print_hex(va_list valist, parameters_t *parameters);
-int print_HEX(va_list valist, parameters_t *parameters);
-int print_binary(va_list valist, parameters_t *parameters);
-int print_octal(va_list valist, parameters_t *parameters);
+/* simple_printers.c module */
+int print_from_to(char *start, char *stop, char *except);
+int print_rev(va_list ap, parameters_t *parameter);
+int print_rot13(va_list ap, parameters_t *parameter);
 
-//_printf_datatypes
-int print_int(va_list valist, parameters_t *parameter);
-int print_percent(va_list valist, parameters_t *parameter);
-int print_S(va_list valist, parameters_t *parameter);
-int print_unsigned(va_list valist, parameters_t *parameter);
-int print_address(va_list valist, parameters_t *parameter);
+/* print_number.c module */
+int _isdigit(int c);
+int _strlen(char *s);
+int print_number(char *str, parameters_t *parameter);
+int print_number_right_shift(char *str, parameters_t *parameter);
+int print_number_left_shift(char *str, parameters_t *parameter);
 
-//spec.c
-int (*get_specifier(char *s))(va_list valist, parameters_t *parameters);
-int get_print_func(char *s, va_list valist, parameters_t *parameters);
+/* parameter.c module */
+void init_parameter(parameters_t *parameter, va_list ap);
 
-#endif /* _PRINT_F */
+/* string_fields.c modoule */
+char *get_precision(char *p, parameters_t *parameter, va_list ap);
+
+/* _prinf.c module */
+int _printf(const char *format, ...);
+
+#endif /*_MAIN_H_*/

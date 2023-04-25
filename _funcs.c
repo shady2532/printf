@@ -1,18 +1,18 @@
 #include "main.h"
 
 /**
- * _strlen - gets character string
+ * _puts - prints a string with newline
+ * @str: the string to print
  *
- * @s: character to getstring
- * Return: returns length
+ * Return:( str-a)
  */
-int _strlen(char *s)
+int _puts(char *str)
 {
-	int i;
+	char *a = str;/*declaration of variables*/
 
-	for (i = 0; s[i] != '\0'; i++)
-	{}
-	return (i);
+	while (*str)
+		_putchar(*str++);
+	return (str - a);
 }
 
 /**
@@ -20,9 +20,19 @@ int _strlen(char *s)
  * @c: The character to print
  *
  * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * On error, -1 is returned, and error is set appropriately.
  */
-int _putchar(char c)
+int _putchar(int c)
 {
-	return (write(1, &c, 1));
+	static int i;
+	static char buf[1024];
+
+	if (c == -1 || i >= 1024)
+	{
+		write(1, buf, i);
+		i = 0;
+	}
+	if (c != -1)
+		buf[i++] = c;
+	return (1);
 }

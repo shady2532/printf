@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	va_list valist;
 	char *p, *start;
 
-	parameters_t parameter = PARAM_INITIALS;
+	parameters_t parameter = parameter_INIT;
 
 	va_start(valist, format);
 
