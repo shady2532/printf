@@ -2,29 +2,29 @@
 
 /**
  * print_int - prints integer
- * @ap: argument pointer
- * @params: the parameters struct
+ * @valist: argument pointer
+ * @parameter: the parameters struct
  *
  * Return: number chars printed
  */
 int print_int(va_list valist, parameters_t *parameter)
 {
-    long l;
+   long l;
 
-    if(parameter->l_modifier)
-        l = va_arg(valist, long);
-    else if(parameter->h_modifier)
-        l = (short int)va_arg(valist, int);
+    if (parameter->l_modifier)
+	    l = va_arg(valist, long);
+    else if (parameter->h_modifier)
+	    l = (short int)va_arg(valist, int);
     else
-        l = (int)va_arg(valist, int);
+	    l = (int)va_arg(valist, int);
 
     return (print_number(convert(l, 10, 0, parameter), parameter));
 }
 
 /**
  * print_percent - prints string
- * @ap: argument pointer
- * @params: the parameters struct
+ * @valist: argument pointer
+ * @parameter: the parameters struct
  *
  * Return: number chars printed
  */
@@ -37,8 +37,8 @@ int print_percent(va_list valist, parameters_t *parameter)
 
 /**
  * print_S - custom format specifier
- * @ap: argument pointer
- * @params: the parameters struct
+ * @valist: argument pointer
+ * @parameter: the parameters struct
  *
  * Return: number chars printed
  */
@@ -71,8 +71,8 @@ int print_S(va_list valist, parameters_t *parameter)
 
 /**
  * print_unsigned - prints unsigned integer numbers
- * @ap: argument pointer
- * @params: the parameters struct
+ * @valist: argument pointer
+ * @parameter: the parameters struct
  *
  * Return: bytes printed
  */
@@ -80,12 +80,12 @@ int print_unsigned(va_list valist, parameters_t *parameter)
 {
     unsigned long l;
 
-    if(parameter->l_modifier)
-        l = (unsigned long)va_arg(valist, long);
-    else if(parameter->h_modifier)
-        l = (unsigned short int)va_arg(valist, int);
+    if (parameter->l_modifier)
+	    l = (unsigned long)va_arg(valist, long);
+    else if (parameter->h_modifier)
+            l = (unsigned short int)va_arg(valist, int);
     else
-        l = (unsigned int)va_arg(valist, int);
+            l = (unsigned int)va_arg(valist, int);
 
     parameter->sign = 1;
     return (print_number(convert(l, 10, CONVERT_UNSIGNED, parameter), parameter));
@@ -93,8 +93,8 @@ int print_unsigned(va_list valist, parameters_t *parameter)
 
 /**
  * print_address - prints address
- * @ap: argument pointer
- * @params: the parameters struct
+ * @valist: argument pointer
+ * @parameter: the parameters struct
  *
  * Return: bytes printed
  */
@@ -103,8 +103,8 @@ int print_address(va_list valist, parameters_t *parameter)
     unsigned long int n = va_arg(valist, unsigned long int);
     char *s;
 
-    if(!n)
-        return (_puts("(nil)"));
+    if (!n)
+	    return (_puts("(nil)"));
 
     s = convert(n, 16, CONVERT_LOWERCASE | CONVERT_UNSIGNED, parameter);
     *--s = 'x';
