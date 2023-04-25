@@ -8,7 +8,7 @@
  * @ap: the argument pointer
  * Return: void
  */
-void init_param(parameters_t *parameter, va_list valist)
+void init_parameter(parameters_t *parameter, va_list valist)
 {
     parameter->sign = 0;
 
