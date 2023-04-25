@@ -32,4 +32,16 @@ typedef struct specifier
 	int (*f)(va_list, parameters_t *);
 } specifier_t;
 
+//_print_string
+int print_char(va_list valist, parameters_t *parameters);
+int print_string(va_list valist, parameters_t *parameters);
+int print_rev(va_list valist, parameters_t *parameters);
+int print_rot13(va_list valist, parameters_t *parameters);
+
+//_print_base
+int print_hex(va_list valist, parameters_t *parameters);
+int print_HEX(va_list valist, parameters_t *parameters);
+int print_binary(va_list valist, parameters_t *parameters);
+int print_octal(va_list valist, parameters_t *parameters);
+
 #endif /* MAIN_H */
