@@ -1,5 +1,5 @@
 # printf
-This is our first project at ALX software engineering intern.
+This is our first group project at ALX software engineering intern.
 
 It's basicly our own printf function.
 
