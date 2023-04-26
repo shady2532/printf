@@ -1,5 +1,9 @@
 # printf
-#files included
+This is our first project at ALX software engineering intern.
+
+It's basicly our own printf function.
+
+# files included
 - _func.c
 - _printf.c
 - numbers.c
